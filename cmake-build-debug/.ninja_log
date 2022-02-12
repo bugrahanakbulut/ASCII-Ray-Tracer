@@ -1,0 +1,6 @@
+# ninja log v5
+3	411	6661331849667966	CMakeFiles/AsciiRayTracer.dir/main.cpp.obj	e076509238ae78f5
+411	821	6661331853721102	AsciiRayTracer.exe	922315711307d6b8
+0	157	6663132570843285	build.ninja	a394c3b75dc1db7a
+2	582	6663632794238364	CMakeFiles/AsciiRayTracer.dir/main.cpp.obj	e076509238ae78f5
+582	1218	6663632800542547	AsciiRayTracer.exe	922315711307d6b8

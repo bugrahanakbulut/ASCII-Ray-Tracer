@@ -1,0 +1,5 @@
+"C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2021.3.3/bin/ninja/win/ninja.exe" -G Ninja C:\Users\akbul\Desktop\workspace\AsciiRayTracer
+-- Found SFML 2.5.1 in C:/Users/akbul/Desktop/workspace/_Libs/SFML-2.5.1/lib/cmake/SFML
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/akbul/Desktop/workspace/AsciiRayTracer/cmake-build-debug
