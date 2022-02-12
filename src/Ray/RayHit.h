@@ -1,3 +1,6 @@
+using namespace sf;
+using namespace std;
+
 class RayHit
 {
     public :
@@ -12,7 +15,7 @@ class RayHit
 RayHit::RayHit()
 {
     Albedo = Vector3f(0, 0, 0);
-    Distance = std::numeric_limits<float>::max();
+    Distance = numeric_limits<float>::max();
     Normal = Vector3f (0, 0, 0);
     Albedo = Vector3f(0, 0, 0);
 }

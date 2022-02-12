@@ -5,12 +5,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector3.hpp>
 
-#include "src/Ray/Ray.h"
-#include "src/Ray/RayHit.h"
-#include "src/Scene/Scene.h"
-#include "src/Scene/Camera.h"
-#include "src/Geometry/Sphere.h"
 #include "src/Extensions/VectorExtensions.h"
+#include "src/Geometry/Sphere.h"
+#include "src/Ray/RayHit.h"
+#include "src/Ray/Ray.h"
+#include "src/Scene/Camera.h"
+#include "src/Scene/Scene.h"
 
 using namespace std;
 
@@ -45,13 +45,18 @@ int main()
 
     Vector3f lightColor(1, 0, 0);
     // Vector3f lightDirection(-0.25, -1, -0.25);
-    Vector3f lightDirection(1, -1, -1);
+    Vector3f lightDirection(-1, -1, -1);
 
     Sphere s(Vector3f(0, 0, 5), 2, Vector3f(1, 0, 0));
+
+    float timePassed = 0;
+    clock_t lastExecutedTime = clock();
 
     while (window.isOpen())
     {
         window.clear();
+
+        lightDirection = Vector3f (cos(timePassed), -1, -1);
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -105,6 +110,16 @@ int main()
                 }
             }
         }
+
+        float timeBetweenFrames = float(clock() - lastExecutedTime) / CLOCKS_PER_SEC;
+
+        timePassed += timeBetweenFrames;
+
+        lastExecutedTime = clock();
+
+        cout << "Time Between Frames : " << timeBetweenFrames << endl;
+
+        cout << "Avarage FPS : " << 1 / timeBetweenFrames << endl;
 
         window.display();
     }
