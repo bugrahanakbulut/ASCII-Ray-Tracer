@@ -16,6 +16,11 @@ To implement ray tracing algorithm I followed some basic steps :
   - Checking ray geometry intersections in scene
   - Lightning (for shading used Blinn Phong)
 
+
+<p align="center">
+    <img src="https://github.com/bugrahanakbulut/ASCII-Ray-Tracer/blob/main/resources/gif/Ray_trace_diagram.svg.png" />
+</p>
+
 ## TODO
 
 This project still in under development so there might be some naughty bugs :D. If you met some of them or you need to implement any feature top of it, and if you get stuck please feel free to contact. There are some feature I will be implement in near future :
