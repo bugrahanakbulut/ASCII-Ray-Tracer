@@ -93,6 +93,7 @@ int main()
                     Vector3f H = VectorExtensions::Normalize(L + V);
 
                     float specularLight = max((float) 0, min((float) 1, VectorExtensions::Dot(H, N) * (lambert > 0)));
+                    // 200 is Glossiness value
                     specularLight = pow(specularLight, 200);
 
                     hit.Albedo = Vector3f (
