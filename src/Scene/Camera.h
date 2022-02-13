@@ -1,30 +1,35 @@
 class Camera
 {
-private :
+    private :
 
-public :
-    Camera(Vector3f position, Vector3f rotation)
-    {
-        Position = position;
-        Rotation = rotation;
+    public :
+        Camera()
+        {
 
-        ViewportSize = Vector2f(10, 10);
-        NearClipping = 0.01;
-        FarClipping = 25;
-    }
+        }
 
-    ~Camera()
-    {
+        Camera(Vector3f position, Vector3f rotation)
+        {
+            Position = position;
+            Rotation = rotation;
 
-    }
+            ViewportSize = Vector2f(5, 5);
+            NearClipping = 0.01;
+            FarClipping = 25;
+        }
 
-    Vector3f ScreenToWorldPosition(Vector2f screenPos, Vector2f screenSize);
+        ~Camera()
+        {
 
-    Vector3f Position;
-    Vector3f Rotation;
-    Vector2f ViewportSize;
-    float NearClipping;
-    float FarClipping;
+        }
+
+        Vector3f ScreenToWorldPosition(Vector2f screenPos, Vector2f screenSize);
+
+        Vector3f Position;
+        Vector3f Rotation;
+        Vector2f ViewportSize;
+        float NearClipping;
+        float FarClipping;
 };
 
 Vector3f Camera::ScreenToWorldPosition(Vector2f screenPos, Vector2f screenSize)

@@ -1,7 +1,44 @@
+using namespace std;
+
 class Scene
 {
-private:
+    private:
+        vector<Geometry *> _sceneGeometries;
+    public:
+        Camera Camera;
 
-public:
-    Camera Camera;
+        void InitScene();
+
+        vector<Geometry *> GetSceneGeometries()
+        {
+            return _sceneGeometries;
+        }
+
+        RayHit TraceRay(Ray ray);
 };
+
+void Scene::InitScene()
+{
+    Sphere *s = (Sphere *) malloc(sizeof (Sphere));
+
+    s = new Sphere(Vector3f(0, 0, 5), 1.25, Vector3f(1, 1, 1));
+
+    _sceneGeometries.push_back(s);
+}
+
+RayHit Scene::TraceRay(Ray ray)
+{
+    RayHit hit;
+
+    for(Geometry * geom : _sceneGeometries)
+    {
+        RayHit curHit = geom->CheckGeometryRayIntersection(ray);
+
+        if (curHit.Distance < hit.Distance)
+        {
+            hit = curHit;
+        }
+    }
+
+    return hit;
+}

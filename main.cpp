@@ -5,10 +5,11 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector3.hpp>
 
-#include "src/Extensions/VectorExtensions.h"
-#include "src/Geometry/Sphere.h"
 #include "src/Ray/RayHit.h"
 #include "src/Ray/Ray.h"
+#include "src/Extensions/VectorExtensions.h"
+#include "src/Geometry/Geometry.h"
+#include "src/Geometry/Sphere.h"
 #include "src/Scene/Camera.h"
 #include "src/Scene/Scene.h"
 
@@ -30,8 +31,8 @@ sf::Text * DrawLuminanceChar(sf::Font font, int x, int y, int lumIndex, sf::Colo
 
 int main()
 {
-    int screenWidth = 800;
-    int screenHeight = 800;
+    int screenWidth = 250;
+    int screenHeight = 250;
 
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "ASCII Ray Tracing");
 
@@ -43,20 +44,21 @@ int main()
 
     Camera cam(cameraPosition, cameraDirection);
 
-    Vector3f lightColor(1, 0, 0);
-    // Vector3f lightDirection(-0.25, -1, -0.25);
+    Vector3f lightColor(1, 0.85, 0.65);
     Vector3f lightDirection(-1, -1, -1);
-
-    Sphere s(Vector3f(0, 0, 5), 2, Vector3f(1, 0, 0));
 
     float timePassed = 0;
     clock_t lastExecutedTime = clock();
+
+    Scene scene;
+    scene.Camera = cam;
+    scene.InitScene();
 
     while (window.isOpen())
     {
         window.clear();
 
-        lightDirection = Vector3f (cos(timePassed), -1, -1);
+        // lightDirection = Vector3f (cos(timePassed), -1, -1);
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -73,9 +75,9 @@ int main()
 
                 Ray ray(rayOrigin, cameraDirection);
 
-                RayHit hit;
+                RayHit hit = scene.TraceRay(ray);
 
-                hit = ray.SphereRayIntersection(s, hit);
+                // hit = ray.SphereRayIntersection(s, hit);
 
                 if (hit.Distance < numeric_limits<float>::max())
                 {
@@ -92,9 +94,9 @@ int main()
                     specularLight = pow(specularLight, 200);
 
                     hit.Albedo = Vector3f (
-                            diffuseLight.x * s.GetAlbedo().x + specularLight,
-                            diffuseLight.y * s.GetAlbedo().y + specularLight,
-                            diffuseLight.z * s.GetAlbedo().z + specularLight);
+                            diffuseLight.x * hit.Albedo.x + specularLight,
+                            diffuseLight.y * hit.Albedo.y + specularLight,
+                            diffuseLight.z * hit.Albedo.z + specularLight);
 
                     sf::Uint8 r = 255 * hit.Albedo.x;
                     sf::Uint8 g = 255 * hit.Albedo.y;
