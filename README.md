@@ -5,7 +5,7 @@ Simple Ray Tracing implementation to draw scene with ASCII characters by using C
     <img src="https://github.com/bugrahanakbulut/ASCII-Ray-Tracer/blob/main/resources/gif/SphereMovement.gif" alt="animated" />
 </p>
 
-## Camera and Scene SetUp
+## Camera and Scene Set Up
 
 In this project, I created a simple scene and camera setup by using SFML. SFML provides a simple interface to the various components of your PC, to ease the development of games and multimedia applications. For the representation scene and 3D objects in it, I choose the Orthogonal Camera Projection for keeping implementation for the beginning.
 
@@ -15,6 +15,11 @@ To implement ray tracing algorithm I followed some basic steps :
   - Sending ray from that pixel world coords with same direction with camera
   - Checking ray geometry intersections in scene
   - Lightning (for shading used Blinn Phong)
+
+
+<p align="center">
+    <img src="https://github.com/bugrahanakbulut/ASCII-Ray-Tracer/blob/main/resources/gif/Ray_trace_diagram.svg.png" />
+</p>
 
 ## TODO
 
@@ -32,6 +37,8 @@ The project is done for educational purpose and may include some files that I do
 ## Credits
 
 http://blog.three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/
+
+https://www.a1k0n.net/2011/07/20/donut-math.html
 
 
 
