@@ -9,10 +9,7 @@ class Scene
 
         void InitScene();
 
-        vector<Geometry *> GetSceneGeometries()
-        {
-            return _sceneGeometries;
-        }
+        void UpdateScene(float timePassed);
 
         RayHit TraceRay(Ray ray);
 };
@@ -41,4 +38,16 @@ RayHit Scene::TraceRay(Ray ray)
     }
 
     return hit;
+}
+
+void Scene::UpdateScene(float timePassed)
+{
+    float pos = cos(timePassed);
+
+    for(Geometry * geom : _sceneGeometries)
+    {
+        Vector3f curPos = geom->GetPosition();
+
+        geom->SetPosition(Vector3f(curPos.x, pos, curPos.z));
+    }
 }

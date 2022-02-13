@@ -13,7 +13,7 @@ class Camera
             Position = position;
             Rotation = rotation;
 
-            ViewportSize = Vector2f(5, 5);
+            ViewportSize = Vector2f(7.5, 7.5);
             NearClipping = 0.01;
             FarClipping = 25;
         }

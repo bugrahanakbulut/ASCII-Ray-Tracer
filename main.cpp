@@ -60,6 +60,8 @@ int main()
 
         // lightDirection = Vector3f (cos(timePassed), -1, -1);
 
+        scene.UpdateScene(timePassed);
+
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -119,9 +121,9 @@ int main()
 
         lastExecutedTime = clock();
 
-        cout << "Time Between Frames : " << timeBetweenFrames << endl;
+        // cout << "Time Between Frames : " << timeBetweenFrames << endl;
 
-        cout << "Avarage FPS : " << 1 / timeBetweenFrames << endl;
+        // cout << "Avarage FPS : " << 1 / timeBetweenFrames << endl;
 
         window.display();
     }

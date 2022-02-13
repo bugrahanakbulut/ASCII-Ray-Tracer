@@ -20,9 +20,14 @@ class Sphere : public Geometry
 
         }
 
-        Vector3f GetPosition() 
+        Vector3f GetPosition() override
         {
             return _position;
+        }
+
+        void SetPosition(Vector3f pos) override
+        {
+            _position = pos;
         }
 
         Vector3f GetAlbedo()
