@@ -5,7 +5,7 @@ Simple Ray Tracing implementation to draw scene with ASCII characters by using C
     <img src="https://github.com/bugrahanakbulut/ASCII-Ray-Tracer/blob/main/resources/gif/SphereMovement.gif" alt="animated" />
 </p>
 
-## Camera and Scene SetUp
+## Camera and Scene Set Up
 
 In this project, I created a simple scene and camera setup by using SFML. SFML provides a simple interface to the various components of your PC, to ease the development of games and multimedia applications. For the representation scene and 3D objects in it, I choose the Orthogonal Camera Projection for keeping implementation for the beginning.
 
